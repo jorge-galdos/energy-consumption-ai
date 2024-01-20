@@ -1,0 +1,9 @@
+name: energy-consumption-ai-env
+channels:
+  - defaults
+dependencies:
+  - python=3.9.13
+  - pip=23.3.1
+  - pip:
+    - psutil==5.9.2
+    - confluent-kafka==2.3.0
