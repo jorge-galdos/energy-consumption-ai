@@ -6,4 +6,5 @@ dependencies:
   - pip=23.3.1
   - pip:
     - psutil==5.9.2
+    - pydantic==2.5.3
     - confluent-kafka==2.3.0
