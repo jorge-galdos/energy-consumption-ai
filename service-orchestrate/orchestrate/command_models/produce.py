@@ -9,7 +9,8 @@ class StartProducingCommand(BaseModel):
 
     Attributes:
         name (str): Command name.
-        interval (PositiveInt): Interval at which to produce system data.
+        interval (PositiveInt): Optional flag to set the interval at which to
+          produce system data.
         max_messages (PositiveInt): Optional flag to limit the total number of
           messages produced.
     """
