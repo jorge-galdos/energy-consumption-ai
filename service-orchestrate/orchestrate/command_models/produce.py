@@ -4,7 +4,7 @@
 from pydantic import BaseModel, PositiveInt, NonNegativeInt
 
 
-class StartProducingCommand(BaseModel):
+class StartCommand(BaseModel):
     """Command model for `start_producing` command.
 
     Attributes:

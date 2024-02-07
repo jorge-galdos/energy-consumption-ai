@@ -1,6 +1,7 @@
 """Send commands to the Produce service.
 """
 
+import os
 from datetime import datetime
 
 import pytz
@@ -12,7 +13,7 @@ import orchestrate.command_models.produce as cmd_mods  # pylint: disable=E0401
 app = App(
     id="orch-produce",
     version=1,
-    broker="aiokafka://localhost:29092",  # todo: Must modify for container    # os.environ.get("KAFKA_BROKER")
+    broker=os.environ.get("KAFKA_BROKER"),
     serializer="json",
 )
 
@@ -36,7 +37,7 @@ produce_commands_topic = app.topic("commands.produce")
 async def start(self, interval: int, max_messages: int) -> None:
     """Command Produce service to begin producing to `data.raw` topic."""
     # Initialize command from command models
-    command = cmd_mods.StartProducingCommand(
+    command = cmd_mods.StartCommand(
         name=self.__name__, interval=interval, max_messages=max_messages
     )
     # Produce command to Kafka topic as JSON message

@@ -23,6 +23,6 @@ setup(
     ],
     python_requires="~=3.9",
     entry_points={
-        "console_scripts": ["prod = orchestrate.produce:main"],
+        "console_scripts": ["prod = orchestrate.produce:app.main"],
     },
 )
