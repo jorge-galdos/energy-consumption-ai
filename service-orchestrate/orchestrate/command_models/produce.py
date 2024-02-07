@@ -1,7 +1,7 @@
 """Pydantic command models for Produce service. 
 """
 
-from pydantic import BaseModel, PositiveInt
+from pydantic import BaseModel, PositiveInt, NonNegativeInt
 
 
 class StartProducingCommand(BaseModel):
@@ -17,4 +17,4 @@ class StartProducingCommand(BaseModel):
 
     name: str
     interval: PositiveInt
-    max_messages: PositiveInt
+    max_messages: NonNegativeInt
