@@ -12,7 +12,7 @@ import orchestrate.command_models.produce as cmd_mods  # pylint: disable=E0401
 app = App(
     id="orch-produce",
     version=1,
-    broker="aiokafka://localhost:29092",  # todo: Must modify for container
+    broker="aiokafka://localhost:29092",  # todo: Must modify for container    # os.environ.get("KAFKA_BROKER")
     serializer="json",
 )
 
@@ -44,7 +44,7 @@ async def start(self, interval: int, max_messages: int) -> None:
     await produce_commands_topic.send(
         value=command.model_dump(),
         headers=[
-            ("source", app.conf.id),
+            ("source", bytes(app.conf.id, encoding="utf-8")),
             ("timestamp", bytes(timestamp, encoding="utf-8")),
         ],
     )
